@@ -13,7 +13,7 @@ const AnotherPage = () => {
 
     return (
         <div>
-            <div className="hero min-h-screen bg-base-200">
+            <div className="hero min-h-screen bg-base-100">
                 <div className="hero-content flex-col lg:flex-row">
                     <Gallery photos={photos} />
                     <div>

@@ -5,6 +5,7 @@ const Navbar = () => {
     const menu = <>
         <li><Link to="/signin">signIn</Link></li>
         <li><Link to="/login">Login</Link></li>
+        <li><Link to="/blog">Blog</Link></li>
     </>
     return (
         <div>
