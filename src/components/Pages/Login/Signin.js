@@ -1,5 +1,6 @@
 import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 
 const Signin = () => {
@@ -31,10 +32,10 @@ const Signin = () => {
     const signIngoogle = () => {
         const provider = new GoogleAuthProvider();
         google(provider)
-        .then(res => {
-            const user = res.user;
-        })
-        .catch(err => console.error(err))
+            .then(res => {
+                const user = res.user;
+            })
+            .catch(err => console.error(err))
     }
     return (
         <div>
@@ -64,7 +65,7 @@ const Signin = () => {
                                     </label>
                                     <input type="password" placeholder="password" name='password' className="input input-bordered required" />
                                     <label className="label">
-                                        <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
+                                        <Link to="/login" className="label-text-alt link link-hover">All ready have an account?</Link>
                                     </label>
                                 </div>
                                 <div className="form-control mt-6">
