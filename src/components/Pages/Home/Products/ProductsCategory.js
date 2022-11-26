@@ -1,11 +1,19 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const ProductsCategory = ({category}) => {
-    const {Brand} = category;
+    const {Brand, _id} = category;
     return (
-        <div className='bg-red-200 p-20 shadow-xl'>
-            <p className='text-2xl font-sans shadow'>{Brand}</p>
+        <div>
+            <Link to={`/products/${_id}`}>
+            <button className='bg-red-200 p-20 shadow-xl'>
+           
+           <p className='text-2xl font-sans shadow'>{Brand}</p>
+       </button>
+            </Link>
+           
         </div>
+       
     );
 };
 

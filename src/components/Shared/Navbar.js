@@ -1,15 +1,17 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 
 const Navbar = () => {
+    
     const menu = <>
         <li><Link to="/signin">signIn</Link></li>
         <li><Link to="/login">Login</Link></li>
         <li><Link to="/blog">Blog</Link></li>
+        
     </>
     return (
-        <div>
-            <div className="navbar bg-base-100"><font></font>
+        <div className='mb-20'>
+            <div className="navbar bg-gray-400 text-white"><font></font>
                 <div className="navbar-start"><font></font>
                     <div className="dropdown"><font></font>
                         <label tabIndex={0} className="btn btn-ghost lg:hidden"><font></font>
@@ -19,7 +21,7 @@ const Navbar = () => {
                             {menu}
                         </ul><font></font>
                     </div><font></font>
-                    <Link className="btn btn-ghost normal-case text-xl">Camsec</Link><font></font>
+                    <Link to='/' className="btn btn-ghost normal-case text-xl">Camsec</Link><font></font>
                 </div><font></font>
                 <div className="navbar-center hidden lg:flex"><font></font>
                     <ul className="menu menu-horizontal p-0"><font></font>
