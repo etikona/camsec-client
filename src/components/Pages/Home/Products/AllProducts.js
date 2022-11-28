@@ -10,7 +10,8 @@ const AllProducts = () => {
     return (
         <div className='grid grid-cols-1 md:grid-cols-2 gap-5'>
           {
-            data.products.map(product => <ProductCard
+            data.products.map((product,i) => <ProductCard
+              key={i}
                 product={product}
                 setOrder={setOrder}
                 ></ProductCard>)

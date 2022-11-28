@@ -5,7 +5,7 @@ import toast from 'react-hot-toast';
 import { AuthContext } from '../../contexts/AuthProvider';
 
 const Signin = () => {
-    const { signIn, google, updateProfile } = useContext(AuthContext);
+    const {user, signIn, google, updateUserProfile } = useContext(AuthContext);
     const [error, setError] = useState('');
     const handleSubmit = event => {
 
@@ -15,7 +15,7 @@ const Signin = () => {
         const email = form.email.value;
         const password = form.password.value;
         if (password.length < 6) {
-            setError("You must be given 6 char")
+            toast.error("You must be given 6 char")
         }
 
         // Sign in with email and password
@@ -25,19 +25,16 @@ const Signin = () => {
                 console.log(user);
             })
             .catch(err => console.error(err))
-            toast("Creating user Successfully")
+        toast.success("Creating user Successfully")
         const userInfo = {
-            displayName: name
+          displayName: name
         }
-        //  Update user profile
-        updateProfile(userInfo)
-        // .then(() => {
-        //     toast("User profile updated")
-        // })
-        // .catch(err => console.error(err))
+       updateUserProfile(userInfo)
+       .then(() => {
+        storeUserInfo(name, email)
+       })
+       .catch(err => console.error(err))
         form.reset()
-
-
     }
 
 
@@ -50,6 +47,24 @@ const Signin = () => {
                 const user = res.user;
             })
             .catch(err => console.error(err))
+    }
+
+    //  Send user to database via server
+
+    const storeUserInfo = (name, email) => {
+        const user = { name, email };
+        fetch('http://localhost:5000/users', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+
+            })
     }
     return (
         <div>

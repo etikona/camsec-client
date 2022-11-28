@@ -1,6 +1,7 @@
-import React from 'react';
-
+import React, { useContext } from 'react';
+import { AuthContext } from '../../../contexts/AuthProvider';
 const MyOrders = () => {
+  const {user} = useContext(AuthContext)
     return (
         <div>
             <h4 className="text-xl">Orders</h4>
