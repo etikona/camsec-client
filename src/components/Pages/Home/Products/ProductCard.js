@@ -1,7 +1,8 @@
 import React from 'react';
 
-const ProductCard = ({ product }) => {
-    const { name, Location, img } = product;
+const ProductCard = ({ product, setOrder }) => {
+    const { name, Location, img, originalPrice
+        , resellPrice, Uses } = product;
     return (
         <div>
             <div className="card w-96 bg-base-100 shadow-xl"><font></font>
@@ -11,8 +12,12 @@ const ProductCard = ({ product }) => {
                 <div className="card-body items-center text-center"><font></font>
                     <h2 className="card-title">{name}</h2><font></font>
                     <p>Location : {Location}</p><font></font>
+                    <p>Original : ${originalPrice}</p><font></font>
+                    <p>Resell : ${resellPrice}</p><font></font>
+                    <p>Used : {Uses}</p><font></font>
                     <div className="card-actions"><font></font>
-                        <button className="btn btn-primary">Book now</button><font></font>
+                        
+                        <label onClick={() => setOrder(product)} htmlFor="my-modal-3" className="btn btn-primary">Book now</label>
                     </div><font></font>
                 </div><font></font>
             </div>

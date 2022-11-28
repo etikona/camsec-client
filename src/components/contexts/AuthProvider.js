@@ -23,12 +23,15 @@ const AuthProvider = ({children}) => {
     const login = (email, password) => {
         return signInWithEmailAndPassword(auth, email, password)
     }
+    //  Update User 
+    const updateProfile = (userInfo) => {
+        return (auth.currentUser, userInfo)
+    }
 
     //  Log out User
     const logOut = () => {
         return signOut(auth)
     }
-
 
     //  Unsubscribed
     useEffect(() =>{
@@ -44,6 +47,7 @@ const AuthProvider = ({children}) => {
          signIn,
          google,
          login,
+         updateProfile ,
          logOut
     }
     return (

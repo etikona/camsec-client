@@ -1,10 +1,11 @@
 import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import toast from 'react-hot-toast';
 import { AuthContext } from '../../contexts/AuthProvider';
 
 const Signin = () => {
-    const { signIn, google } = useContext(AuthContext);
+    const { signIn, google, updateProfile } = useContext(AuthContext);
     const [error, setError] = useState('');
     const handleSubmit = event => {
 
@@ -24,8 +25,21 @@ const Signin = () => {
                 console.log(user);
             })
             .catch(err => console.error(err))
+            toast("Creating user Successfully")
+        const userInfo = {
+            displayName: name
+        }
+        //  Update user profile
+        updateProfile(userInfo)
+        // .then(() => {
+        //     toast("User profile updated")
+        // })
+        // .catch(err => console.error(err))
         form.reset()
+
+
     }
+
 
     //  Sign in with google
 
