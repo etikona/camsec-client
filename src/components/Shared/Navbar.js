@@ -11,7 +11,7 @@ const Navbar = () => {
             .catch(err => console.error(err));
     }
     const menu = <>
-        <li><Link to="/signin">signIn</Link></li>
+        
        
         <li><Link to="/blog">Blog</Link></li>
         { user?.uid ?
@@ -41,9 +41,9 @@ const Navbar = () => {
                         {menu}
                     </ul><font></font>
                 </div><font></font>
-                {/* <label htmlFor="my-drawer-4" tabIndex={2} className="btn btn-ghost lg:hidden"><font></font>
+                <label htmlFor="my-drawer-4" tabIndex={2} className="btn btn-ghost lg:hidden"><font></font>
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg><font></font>
-                        </label><font></font> */}
+                        </label><font></font>
             </div>
         </div>
     );

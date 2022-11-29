@@ -3,10 +3,15 @@ import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import { AuthContext } from '../../contexts/AuthProvider';
+import useToken from '../../hooks/useToken';
 
 const Signin = () => {
-    const {user, signIn, google, updateUserProfile } = useContext(AuthContext);
+    const { user, signIn, google, updateUserProfile } = useContext(AuthContext);
     const [error, setError] = useState('');
+    const [buyer, setBuyer] = useState(null);
+    const [seller, setSeller] = useState(null);
+    const [userEmail, setUserEmail] = useState('')
+    const token = useToken(userEmail)
     const handleSubmit = event => {
 
         event.preventDefault()
@@ -14,6 +19,7 @@ const Signin = () => {
         const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
+       
         if (password.length < 6) {
             toast.error("You must be given 6 char")
         }
@@ -22,19 +28,21 @@ const Signin = () => {
         signIn(email, password)
             .then(res => {
                 const user = res.user;
-                console.log(user);
+
             })
             .catch(err => console.error(err))
-        toast.success("Creating user Successfully")
+
         const userInfo = {
-          displayName: name
+            displayName: name
         }
-       updateUserProfile(userInfo)
-       .then(() => {
-        storeUserInfo(name, email)
-       })
-       .catch(err => console.error(err))
+        updateUserProfile(userInfo)
+            .then(() => {
+                storeUserInfo(name, email)
+            })
+            .catch(err => console.error(err))
         form.reset()
+        toast.success("Creating user Successfully")
+
     }
 
 
@@ -62,10 +70,13 @@ const Signin = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                setUserEmail(email)
 
             })
-    }
+    };
+
+
+   
     return (
         <div>
             <div className="hero min-h-screen bg-base-200">
@@ -101,6 +112,11 @@ const Signin = () => {
                                     <input className='btn bg- w-full' type="submit" value="signin" />
                                 </div>
                             </form>
+                            <select  className="select select-bordered w-full max-w-xs"><font></font>
+                                <option disabled defaultValue>User</option><font></font>
+                                <option id='user'>User</option><font></font>
+                                <option ud='seller'>Seller</option><font></font>
+                            </select>
                             <div className="form-control mt-6">
                                 <button onClick={signIngoogle} className="btn btn-outline">Continue with google</button>
                             </div>

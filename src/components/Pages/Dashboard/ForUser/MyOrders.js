@@ -1,43 +1,51 @@
+import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
 import { AuthContext } from '../../../contexts/AuthProvider';
 const MyOrders = () => {
-  const {user} = useContext(AuthContext)
+  const {user} = useContext(AuthContext);
+
+  const url = `http://localhost:5000/orders/email=${user?.email}`;
+  
+  const {data : orders = []}= useQuery({
+    queryKey: ['orders', user?.email],
+    queryFn : async () => {
+      const res = await fetch(url);
+      const data = await res.json();
+
+      return data;
+    }
+  })
     return (
         <div>
+           
             <h4 className="text-xl">Orders</h4>
             <div className="overflow-x-auto"><font></font>
   <table className="table w-full"><font></font>
   
     <thead><font></font>
       <tr><font></font>
+        
         <th></th><font></font>
-        <th>Name</th><font></font>
-        <th>Job</th><font></font>
-        <th>Favorite Color</th><font></font>
+        <th>Title</th><font></font>
+        <th>Email</th><font></font>
+        <th>Price</th><font></font>
+        <th>Payment</th><font></font>
       </tr><font></font>
     </thead><font></font>
     <tbody><font></font>
-      
-      <tr><font></font>
-        <th>1</th><font></font>
-        <td>Cy Ganderton</td><font></font>
-        <td>Quality Control Specialist</td><font></font>
+    {
+      orders?.map((order, i) => 
+        <tr>
+        <th>{i+1}</th><font></font>
+        <th>{order.name}</th><font></font>
+        <td>{order.email}</td><font></font>
+        <td>{order.price}</td><font></font>
         <td>Blue</td><font></font>
-      </tr><font></font>
-      
-      <tr className="hover"><font></font>
-        <th>2</th><font></font>
-        <td>Hart Hagerty</td><font></font>
-        <td>Desktop Support Technician</td><font></font>
-        <td>Purple</td><font></font>
-      </tr><font></font>
-      
-      <tr><font></font>
-        <th>3</th><font></font>
-        <td>Brice Swyre</td><font></font>
-        <td>Tax Accountant</td><font></font>
-        <td>Red</td><font></font>
-      </tr><font></font>
+      </tr>
+      )
+    }
+   
+
     </tbody><font></font>
   </table><font></font>
 </div>

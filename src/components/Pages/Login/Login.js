@@ -1,14 +1,20 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
+import useToken from '../../hooks/useToken';
 
 const Login = () => {
     const {login} = useContext(AuthContext)
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
+    const [loginUserEmail, setLoginUserEmail] = useState('')
+    const [token] = useToken(loginUserEmail);
 
-    
+    if(token){
+        navigate('/')
+    }
+
     const handleSubmit = event => {
         event.preventDefault()
         const form = event.target;
@@ -17,6 +23,7 @@ const Login = () => {
         login(email, password)
         .then(res => {
             const user = res.user;
+            setLoginUserEmail(email)
             
         })
         .catch(err => console.error(err))

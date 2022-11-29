@@ -6,7 +6,7 @@ const DashboardLayout = () => {
     return (
         <div>
             <Navbar/>
-            <div className=" flex flex-col  items-center justify-center drawer drawer-mobile"><font></font>
+            <div className=" flex  items-center justify-center drawer drawer-mobile"><font></font>
   <input id="my-drawer-4" type="checkbox" className="drawer-toggle" /><font></font>
   <div className="drawer-content "><font></font>
   <Outlet/>
