@@ -9,6 +9,7 @@ import Home from "../Pages/Home/Home";
 import AllProducts from "../Pages/Home/Products/AllProducts";
 import Login from "../Pages/Login/Login";
 import Signin from "../Pages/Login/Signin";
+import AdminRoute from "./AdminRoute";
 
 const router = createBrowserRouter([
     {
@@ -34,7 +35,7 @@ const router = createBrowserRouter([
         {
             path: '/products/:id',
             element: <AllProducts/>,
-            loader: ({params})=> fetch(`http://localhost:5000/products/${params.id}`)
+            loader: ({params})=> fetch(`https://camsec-server.vercel.app/products/${params.id}`)
         },
     ]
 },
@@ -48,7 +49,7 @@ const router = createBrowserRouter([
         },
         {
             path: '/dashboard/users',
-            element: <Users/>
+            element: <AdminRoute><Users/></AdminRoute>
         },
     ]
 },

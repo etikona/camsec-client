@@ -5,7 +5,7 @@ const Products = () => {
     const [categories, setCategories] = useState([]);
 
     useEffect(() => {
-        const url = 'http://localhost:5000/products';
+        const url = 'https://camsec-server.vercel.app/products';
         fetch(url)
         .then(res => res.json())
         .then(data => setCategories(data))
