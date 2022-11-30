@@ -3,7 +3,7 @@ import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../contexts/AuthProvider';
 
 const Navbar = () => {
-    const {user, logOut} = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
 
     const handleLogOut = () => {
         logOut()
@@ -11,16 +11,17 @@ const Navbar = () => {
             .catch(err => console.error(err));
     }
     const menu = <>
-        
-       
+
+
+        <li><Link to="/">Home</Link></li>
         <li><Link to="/blog">Blog</Link></li>
-        { user?.uid ?
+        {user?.uid ?
             <>
                 <li><Link to="/dashboard">Dashboard</Link></li>
                 <li><button onClick={handleLogOut}>Logout</button></li>
             </>
             : <li><Link to="/login">Login</Link></li>
-            }
+        }
     </>
     return (
         <div className='mb-10'>
@@ -42,8 +43,8 @@ const Navbar = () => {
                     </ul><font></font>
                 </div><font></font>
                 <label htmlFor="my-drawer-4" tabIndex={2} className="btn btn-ghost lg:hidden"><font></font>
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg><font></font>
-                        </label><font></font>
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg><font></font>
+                </label><font></font>
             </div>
         </div>
     );

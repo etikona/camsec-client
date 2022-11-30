@@ -19,7 +19,7 @@ const Signin = () => {
         const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
-       
+
         if (password.length < 6) {
             toast.error("You must be given 6 char")
         }
@@ -76,7 +76,7 @@ const Signin = () => {
     };
 
 
-   
+
     return (
         <div>
             <div className="hero min-h-screen bg-base-200">
@@ -112,7 +112,7 @@ const Signin = () => {
                                     <input className='btn bg- w-full' type="submit" value="signin" />
                                 </div>
                             </form>
-                            <select  className="select select-bordered w-full max-w-xs"><font></font>
+                            <select className="select select-bordered w-full max-w-xs"><font></font>
                                 <option disabled defaultValue>User</option><font></font>
                                 <option id='user'>User</option><font></font>
                                 <option ud='seller'>Seller</option><font></font>

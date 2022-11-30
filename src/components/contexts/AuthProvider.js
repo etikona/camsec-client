@@ -11,16 +11,19 @@ const AuthProvider = ({children}) => {
     const [loading, setLoading] = useState(true)
     // Create User
     const signIn = (email, password) => {
+        setLoading(true)
         return createUserWithEmailAndPassword(auth, email, password)
     }
 
     // Creating user with Google
     const google = (provider) => {
+        setLoading(true)
         return signInWithPopup(auth, provider)
     }
 
     // Login User
     const login = (email, password) => {
+        setLoading(true)
         return signInWithEmailAndPassword(auth, email, password)
     }
     //  Update User 

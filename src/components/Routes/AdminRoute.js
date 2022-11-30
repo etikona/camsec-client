@@ -5,19 +5,19 @@ import { AuthContext } from '../contexts/AuthProvider';
 
 import useAdmin from '../hooks/useAdmin';
 
-const AdminRoute = ({children}) => {
-    const {user, loading} = useContext(AuthContext)
+const AdminRoute = ({ children }) => {
+    const { user, loading } = useContext(AuthContext)
     const [isAdmin, adminLoading] = useAdmin(user?.email)
     const location = useLocation();
 
-    if(loading || adminLoading){
-        return  <progress className="progress w-56"></progress>
+    if (loading || adminLoading) {
+        return <progress className="progress w-56"></progress>
     }
 
-    if(user && isAdmin){
-    return children
+    if (user && isAdmin) {
+        return children
     }
-    return  <Navigate to="/login" state={{from: location}} replace></Navigate>
+    return <Navigate to="/login" state={{ from: location }} replace></Navigate>
 };
 
 export default AdminRoute;

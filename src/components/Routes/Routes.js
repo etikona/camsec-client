@@ -13,51 +13,51 @@ import AdminRoute from "./AdminRoute";
 
 const router = createBrowserRouter([
     {
-    path: '/',
-    element: <Main/>,
-    children: [
-        {
-            path: '/',
-            element: <Home/>
-        },
-        {
-            path: '/signin',
-            element: <Signin/>
-        },
-        {
-            path: '/login',
-            element: <Login/>
-        },
-        {
-            path: '/blog',
-            element: <Blogs/>
-        },
-        {
-            path: '/products/:id',
-            element: <AllProducts/>,
-            loader: ({params})=> fetch(`https://camsec-server.vercel.app/products/${params.id}`)
-        },
-    ]
-},
-{
-    path: '/dashboard',
-    element: <DashboardLayout/>,
-    children: [
-        {
-            path: '/dashboard',
-            element: <MyOrders/>
-        },
-        {
-            path: '/dashboard/users',
-            element: <AdminRoute><Users/></AdminRoute>
-        },
-    ]
-},
+        path: '/',
+        element: <Main />,
+        children: [
+            {
+                path: '/',
+                element: <Home />
+            },
+            {
+                path: '/signin',
+                element: <Signin />
+            },
+            {
+                path: '/login',
+                element: <Login />
+            },
+            {
+                path: '/blog',
+                element: <Blogs />
+            },
+            {
+                path: '/products/:id',
+                element: <AllProducts />,
+                loader: ({ params }) => fetch(`https://camsec-server.vercel.app/products/${params.id}`)
+            },
+        ]
+    },
+    {
+        path: '/dashboard',
+        element: <DashboardLayout />,
+        children: [
+            {
+                path: '/dashboard',
+                element: <MyOrders />
+            },
+            {
+                path: '/dashboard/users',
+                element: <AdminRoute><Users /></AdminRoute>
+            },
+        ]
+    },
 
-{
-    path: '*',
-    element: <Error/>
-}
+    {
+        path: '*',
+        element: <Error />
+    }
 ]
 )
 
