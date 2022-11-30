@@ -7,5 +7,10 @@
 - Tailwind 
 - Daisy UI is Tailwind framework
 - React router dom
-_ React hot toast
+- React hot toast
 - React photo gallery
+
+### Admin Details 
+
+- Email = virat@kohli.com
+- Password = 123456
