@@ -6,10 +6,10 @@ import { AuthContext } from '../../../contexts/AuthProvider';
 const MyOrders = () => {
   const { user } = useContext(AuthContext);
 
-  const url = `https://camsec-server.vercel.app/orders/email=${user?.email}`;
+  const url = `https://camsec-server.vercel.app/orders?email=${user?.email}`;
 
   const { data: orders = [] } = useQuery({
-    queryKey: ['orders', user?.email],
+    queryKey: ['orders'],
     queryFn: async () => {
       const res = await fetch(url);
       const data = await res.json();
@@ -26,12 +26,12 @@ const MyOrders = () => {
           <thead><font></font>
             <tr><font></font>
 
-              <th></th><font></font>
+              <th></th>
               <th>Title</th><font></font>
               <th>Email</th><font></font>
               <th>Price</th><font></font>
               <th>Payment</th><font></font>
-            </tr><font></font>
+            </tr>
           </thead><font></font>
           <tbody><font></font>
             {

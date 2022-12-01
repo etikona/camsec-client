@@ -1,9 +1,12 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../../contexts/AuthProvider';
 import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 const BookingModal = ({ order }) => {
     const { name, resellPrice } = order
     const { user } = useContext(AuthContext);
+    const navigate = useNavigate();
+
 
     const handleOrder = event => {
         event.preventDefault();
@@ -12,8 +15,8 @@ const BookingModal = ({ order }) => {
         const email = user.email;
         const price = form.price.defaultValue;
         const number = form.number.defaultValue;
+        
         const location = form.location.defaultValue;
-
         const orders = {
             userName, email, price, number, location, name
         }
@@ -37,8 +40,9 @@ const BookingModal = ({ order }) => {
                     toast("Your order confirmed", {
                         icon: '✔'
                     })
+                    navigate('/dashboard')
                 }
-
+                
                 form.reset();
             })
     }
