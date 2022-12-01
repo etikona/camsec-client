@@ -11,6 +11,7 @@ import AllProducts from "../Pages/Home/Products/AllProducts";
 import Login from "../Pages/Login/Login";
 import Signin from "../Pages/Login/Signin";
 import AdminRoute from "./AdminRoute";
+import SellerRoute from "./SellerRoute";
 
 const router = createBrowserRouter([
     {
@@ -55,6 +56,7 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard/sellers/addProduct',
                 element: <AddProduct/>
+                 
             },
         ]
     },

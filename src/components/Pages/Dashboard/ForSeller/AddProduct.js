@@ -1,26 +1,64 @@
 import React from 'react';
+import toast from 'react-hot-toast';
 
 const AddProduct = () => {
-    return (
-        <div>
-            <form>
+  const handleAddProducts = event => {
+    event.preventDefault();
+   const form = event.target;
+   const name = form.name.value;
+   const price = form.price.value;
+   const condition = form.condition.value;
+   const location = form.location.value;
+   const products = {
+    name,price, condition, location, 
+   };
 
-            <div className="hero min-h-screen bg-base-100"><font></font>
-  <div className="hero-content flex-col lg:flex-row-reverse"><font></font>
+   fetch('https://camsec-server.vercel.app/products', {
+    method: 'POST',
+    headers: {
+        'content-type': 'application/json'
+    },
+    body: JSON.stringify(products)
+})
+    .then(res => res.json())
+    .then(data => {
+        console.log(data);
+        if (data.acknowledged) {
+            toast("Your order confirmed", {
+                icon: '✔'
+            })
+           
+        }
+        
+        form.reset();
+    })
+  }
+  return (
+    <div>
    
-    <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100"><font></font>
-      <div className="card-body"><font></font>
-      <input className='w-full' type="text"  name='name' placeholder='name'/>
-        <div className="form-control mt-6"><font></font>
-          <button className="btn btn-primary">Login</button><font></font>
-        </div><font></font>
-      </div><font></font>
-    </div><font></font>
-  </div><font></font>
-</div>
-            </form>
+
+        <div className="hero min-h-screen bg-base-100"><font></font>
+          <div className="hero-content flex-col lg:flex-row-reverse"><font></font>
+
+            <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100"><font></font>
+              <div className="card-body"><font></font>
+              <form onSubmit={handleAddProducts}>
+                <input type="text" name='name' placeholder="Name" className="input input-bordered input-primary w-full max-w-xs" />
+                <input type="text" name='price' placeholder="Price" className="input input-bordered input-primary w-full max-w-xs" />
+                <input type="text" name='condition' placeholder="Condition" className="input input-bordered input-primary w-full max-w-xs" />
+                <input type="text" name='location' placeholder="Location" className="input input-bordered input-primary w-full max-w-xs" />
+                <div className="form-control mt-6"><font></font>
+                <input  className="btn btn-accent" type="submit" value="submit" />
+                  
+                </div><font></font>
+                </form>
+              </div><font></font>
+            </div><font></font>
+          </div><font></font>
         </div>
-    );
+      
+    </div>
+  );
 };
 
 export default AddProduct;

@@ -54,7 +54,7 @@ const BookingModal = ({ order }) => {
                     <label htmlFor="my-modal-3" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
                     <h3 className="text-lg font-bold">{name}</h3>
                     <form onSubmit={handleOrder}>
-                        <input type="text" readOnly defaultValue={user.displayName} name='userName' className="input input-bordered w-full max-w-xs" />
+                        <input type="text"  defaultValue={user.displayName} name='userName' className="input input-bordered w-full max-w-xs" />
                         <input type="email" readOnly defaultValue={user.email} name='email' className="input input-bordered w-full max-w-xs" />
                         <input type="text" readOnly defaultValue={resellPrice} name='price' className="input input-bordered w-full max-w-xs" />
                         <input type="text" placeholder="phone number" name='number' className="input input-bordered w-full max-w-xs" />

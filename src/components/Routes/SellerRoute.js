@@ -5,7 +5,7 @@ import { AuthContext } from '../contexts/AuthProvider';
 
 import useSeller from '../hooks/useSeller';
 
-const AdminRoute = ({ children }) => {
+const SellerRoute = ({ children }) => {
     const { user, loading } = useContext(AuthContext)
     const [isSeller, sellerLoading] = useSeller(user?.email)
     const location = useLocation();
@@ -20,4 +20,4 @@ const AdminRoute = ({ children }) => {
     return <Navigate to="/login" state={{ from: location }} replace></Navigate>
 };
 
-export default AdminRoute;
+export default SellerRoute;
