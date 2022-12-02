@@ -31,7 +31,7 @@ const Signin = () => {
     signIn(email, password)
         .then(res => {
             const user = res.user;
-            
+            // userRole(user);
         })
         .catch(err => console.error(err))
 
@@ -51,7 +51,7 @@ const Signin = () => {
 }
 //  Sign in with google
 
-const signIngoogle =() => {
+const signIngoogle = () => {
     const provider = new GoogleAuthProvider();
     google(provider)
         .then(res => {
@@ -63,7 +63,7 @@ const signIngoogle =() => {
 //  Send user to database via server
 
 const storeUserInfo = (name, email, role) => {
-    const user = { name, email, role };
+    const user = { name, email, role};
     fetch('https://camsec-server.vercel.app/users', {
         method: 'POST',
         headers: {
@@ -76,7 +76,17 @@ const storeUserInfo = (name, email, role) => {
             setUserEmail(email)
         })
 };
-
+//  Set role
+// const userRole = (role) => {
+//     const googleSign = signIngoogle();
+//     const normal = handleSubmit();
+//     if (googleSign) {
+//         setRole(buyer)
+//     }
+//     if (normal) {
+//         setRole(seller)
+//     }
+// }
 
 return (
     <div>

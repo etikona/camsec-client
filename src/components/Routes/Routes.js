@@ -3,7 +3,9 @@ import DashboardLayout from "../Layout/DashboardLayout";
 import Main from "../Layout/Main";
 import Blogs from "../Pages/Blogs";
 import AddProduct from "../Pages/Dashboard/ForSeller/AddProduct";
+import MyProducts from "../Pages/Dashboard/ForSeller/MyProducts";
 import MyOrders from "../Pages/Dashboard/ForUser/MyOrders";
+import Sellers from "../Pages/Dashboard/Sellers";
 import Users from "../Pages/Dashboard/Users";
 import Error from "../Pages/Error/Error";
 import Home from "../Pages/Home/Home";
@@ -54,8 +56,17 @@ const router = createBrowserRouter([
                 element: <AdminRoute><Users /></AdminRoute>
             },
             {
+                path: '/dashboard/sellers',
+                element: <AdminRoute><Sellers /></AdminRoute>
+            },
+            {
                 path: '/dashboard/sellers/addProduct',
                 element: <AddProduct/>
+                 
+            },
+            {
+                path: '/dashboard/sellers/myProducts',
+                element: <MyProducts/>
                  
             },
         ]

@@ -16,7 +16,7 @@ const Products = () => {
             <h3 className='mb-5 text-3xl font-serif'>Products</h3>
             <div className='grid grid-cols-1 md:grid-cols-3 gap-10'>
                 {
-                    categories.map(category =>
+                    categories.slice(0,3).map(category =>
                         <ProductsCategory key={category._id} category={category}></ProductsCategory>
                     )
                 }
