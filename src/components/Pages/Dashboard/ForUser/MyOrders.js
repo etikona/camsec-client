@@ -40,7 +40,7 @@ const MyOrders = () => {
                 <th>{order.name}</th><font></font>
                 <td>{order.email}</td><font></font>
                 <td>{order.price}</td><font></font>
-                <td>Blue</td><font></font>
+                <td>Pay</td><font></font>
               </tr>)
 
             }

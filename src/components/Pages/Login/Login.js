@@ -23,7 +23,8 @@ const Login = () => {
         login(email, password)
             .then(res => {
                 const user = res.user;
-                setLoginUserEmail(email)
+                setLoginUserEmail(email);
+                navigate(from, {replace: true});
 
             })
             .catch(err => console.error(err))
