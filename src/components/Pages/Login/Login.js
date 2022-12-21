@@ -36,7 +36,7 @@ const Login = () => {
 
                 <div className="hero-content flex-col lg:flex-row-reverse">
 
-                    <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                    <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-sky-200">
                         <div className="card-body">
 
                             <form onSubmit={handleSubmit}>
@@ -56,7 +56,7 @@ const Login = () => {
                                     </label>
                                 </div>
                                 <div className="form-control mt-6">
-                                    <input className='btn bg- w-full' type="submit" value="login" />
+                                    <input className='btn bg-sky-500 border-0s w-full' type="submit" value="login" />
                                 </div>
                             </form>
 

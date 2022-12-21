@@ -76,17 +76,7 @@ const storeUserInfo = (name, email, role) => {
             setUserEmail(email)
         })
 };
-//  Set role
-// const userRole = (role) => {
-//     const googleSign = signIngoogle();
-//     const normal = handleSubmit();
-//     if (googleSign) {
-//         setRole(buyer)
-//     }
-//     if (normal) {
-//         setRole(seller)
-//     }
-// }
+
 
 return (
     <div>
@@ -94,7 +84,7 @@ return (
 
             <div className="hero-content flex-col lg:flex-row-reverse">
 
-                <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-sky-200">
                     <div className="card-body">
 
                         <form onSubmit={handleSubmit}>
@@ -120,7 +110,7 @@ return (
                                 </label>
                             </div>
                             <div className="form-control mt-6">
-                                <input className='btn bg- w-full' type="submit" value="signin" />
+                                <input className='btn bg-sky-500 border-0 w-full' type="submit" value="signin" />
                             </div>
 
                             <select name='role' className="select select-bordered w-full max-w-xs"><font></font>
