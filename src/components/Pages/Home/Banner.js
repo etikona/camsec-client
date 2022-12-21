@@ -7,7 +7,7 @@ const Banner = () => {
                 <div className="hero-overlay bg-opacity-60"></div><font></font>
                 <div className="hero-content text-center text-neutral-content"><font></font>
                     <div className="max-w-md"><font></font>
-                        <h1 className="mb-5 text-5xl font-bold font-serif">Welcome to Camsec</h1><font></font>
+                        <h1 className="mb-5 text-5xl font-bold font-serif text-sky-200">Welcome to Camsec</h1><font></font>
                         <p className="mb-5">We provide high-quality used camera & lens within your budget..</p><font></font>
                     </div><font></font>
                 </div><font></font>

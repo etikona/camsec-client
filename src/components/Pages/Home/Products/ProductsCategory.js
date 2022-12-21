@@ -6,7 +6,7 @@ const ProductsCategory = ({ category }) => {
     return (
         <div>
             <Link to={`/products/${_id}`}>
-                <button className='bg-red-200 p-20 shadow-xl'>
+                <button className='bg-sky-300 p-20 shadow-xl'>
 
                     <p className='text-2xl font-sans shadow'>{Brand}</p>
                 </button>

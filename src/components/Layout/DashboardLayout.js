@@ -13,6 +13,7 @@ const DashboardLayout = () => {
   const [isAdmin] = useAdmin(user?.email);
   const [isSeller] = useSeller(user?.email);
  console.log(isSeller);
+ console.log(isAdmin);
   return (
     <div>
       <Navbar />

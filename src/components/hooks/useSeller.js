@@ -7,10 +7,10 @@ const useSeller = email => {
     const [sellerLoading, setSellerLoading] = useState(true)
     useEffect(() => {
         if (email) {
-            fetch(`https://camsec-server.vercel.app/users/admin/${email}`)
+            fetch(`https://camsec-server.vercel.app/users/seller/${email}`)
                 .then(res => res.json())
                 .then(data => {
-                   
+                   console.log(data);
                     setIsSeller(data.isSeller)
                     setSellerLoading(false)
                 })
