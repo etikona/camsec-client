@@ -17,67 +17,77 @@ import PrivateRoute from "./PrivateRoute";
 import SellerRoute from "./SellerRoute";
 
 const router = createBrowserRouter([
-    {
-        path: '/',
-        element: <Main />,
-        children: [
-            {
-                path: '/',
-                element: <Home />
-            },
-            {
-                path: '/signin',
-                element: <Signin />
-            },
-            {
-                path: '/login',
-                element: <Login />
-            },
-            {
-                path: '/blog',
-                element: <Blogs />
-            },
-            {
-                path: '/products/:id',
-                element: <PrivateRoute><AllProducts/></PrivateRoute>,
-                loader: ({ params }) => fetch(`https://camsec-server.vercel.app/products/${params.id}`)
-            },
-        ]
-    },
-    {
-        path: '/dashboard',
-        element: <DashboardLayout />,
-        children: [
-            {
-                path: '/dashboard',
-                element: <MyOrders />
-            },
-            {
-                path: '/dashboard/users',
-                element: <AdminRoute><Users /></AdminRoute>
-            },
-            {
-                path: '/dashboard/sellers',
-                element: <AdminRoute><Sellers /></AdminRoute>
-            },
-            {
-                path: '/dashboard/sellers/addProduct',
-                element: <AddProduct/>
-                 
-            },
-            {
-                path: '/dashboard/sellers/myProducts',
-                element: <MyProducts/>
-                 
-            },
-        ]
-    },
+  {
+    path: "/",
+    element: <Main />,
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "/signin",
+        element: <Signin />,
+      },
+      {
+        path: "/login",
+        element: <Login />,
+      },
+      {
+        path: "/blog",
+        element: <Blogs />,
+      },
+      {
+        path: "/products/:id",
+        element: (
+          <PrivateRoute>
+            <AllProducts />
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`https://camsec-server.vercel.app/products/${params.id}`),
+      },
+    ],
+  },
+  {
+    path: "/dashboard",
+    element: <DashboardLayout />,
+    children: [
+      {
+        path: "/dashboard",
+        element: <MyOrders />,
+      },
+      // {
+      //     path: '/dashboard/users',
+      //     element: <AdminRoute><Users /></AdminRoute>
+      // },
+      {
+        path: "/dashboard/users",
+        element: <Users />,
+      },
+      {
+        path: "/dashboard/sellers",
+        element: (
+          <AdminRoute>
+            <Sellers />
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "/dashboard/sellers/addProduct",
+        element: <AddProduct />,
+      },
+      {
+        path: "/dashboard/sellers/myProducts",
+        element: <MyProducts />,
+      },
+    ],
+  },
 
-    {
-        path: '*',
-        element: <Error />
-    }
-]
-)
+  {
+    path: "*",
+    element: <Error />,
+  },
+]);
 
 export default router;

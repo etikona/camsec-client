@@ -52,7 +52,11 @@ const BookingModal = ({ order }) => {
   };
   return (
     <div>
-      <input type="checkbox" id="my-modal-3" className="modal-toggle" />
+      <input
+        type="checkbox"
+        id="my-modal-3"
+        className="modal-toggle bg-sky-600"
+      />
       <div className="modal">
         <div className="modal-box relative">
           <label
@@ -62,7 +66,7 @@ const BookingModal = ({ order }) => {
             ✕
           </label>
           <h3 className="text-lg font-bold">{name}</h3>
-          <form onSubmit={handleOrder}>
+          <form className="" onSubmit={handleOrder}>
             <input
               type="text"
               defaultValue={user.displayName}
