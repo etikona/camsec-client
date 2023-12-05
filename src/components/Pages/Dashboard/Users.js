@@ -41,11 +41,10 @@ const Users = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        // if (data.modifiedCount > 0) {
-        //   toast.success("Deleted user successfully");
-        //   refetch();
-        // }
-        console.log(data);
+        if (data.modifiedCount > 0) {
+          toast.success("Deleted user successfully");
+          refetch();
+        }
       });
   };
 
