@@ -15,6 +15,7 @@ import Signin from "../Pages/Login/Signin";
 import AdminRoute from "./AdminRoute";
 import PrivateRoute from "./PrivateRoute";
 import SellerRoute from "./SellerRoute";
+import Payment from "../Pages/Dashboard/ForUser/Payment";
 
 const router = createBrowserRouter([
   {
@@ -57,10 +58,15 @@ const router = createBrowserRouter([
         path: "/dashboard",
         element: <MyOrders />,
       },
-      // {
-      //     path: '/dashboard/users',
-      //     element: <AdminRoute><Users /></AdminRoute>
-      // },
+
+      {
+        path: "/dashboard/users",
+        element: <Users />,
+      },
+      {
+        path: "/dashboard/users/payment",
+        element: <Payment />,
+      },
       {
         path: "/dashboard/users",
         element: <Users />,

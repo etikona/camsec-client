@@ -13,7 +13,7 @@ const Sellers = () => {
     },
   });
   const deleteUser = (id) => {
-    fetch(`http://localhost:5000/users/${id}`, {
+    fetch(`https://camsec-server.vercel.app/users/${id}`, {
       method: "DELETE",
       headers: {
         authorization: `bearer ${localStorage.getItem("accessToken")}`,

@@ -1,6 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
 import React, { useContext } from "react";
 import { AuthContext } from "../../../contexts/AuthProvider";
+import { Link } from "react-router-dom";
+import Payment from "./Payment";
 
 const MyOrders = () => {
   const { user } = useContext(AuthContext);
@@ -12,9 +14,17 @@ const MyOrders = () => {
     queryFn: async () => {
       const res = await fetch(url);
       const data = await res.json();
+      // console.log(data);
       return data;
     },
   });
+  // Payment route
+  const orderPay = (id) => {
+    fetch(`http://localhost:5000/orders/${id}`)
+      .then((res) => res.json())
+      .then((data) => <Payment data={data} />);
+  };
+
   return (
     <div>
       <h4 className="text-2xl font-sans font-thin text-white  ">Orders</h4>
@@ -51,7 +61,17 @@ const MyOrders = () => {
                 <font></font>
                 <td>{order.price}</td>
                 <font></font>
-                <td>Pay</td>
+                <td>
+                  <Link
+                    to="/dashboard/users/payment"
+                    onClick={() => {
+                      orderPay(order._id);
+                    }}
+                  >
+                    Pay
+                  </Link>
+                  {/* Pay */}
+                </td>
                 <font></font>
               </tr>
             ))}
