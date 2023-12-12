@@ -16,6 +16,7 @@ import AdminRoute from "./AdminRoute";
 import PrivateRoute from "./PrivateRoute";
 import SellerRoute from "./SellerRoute";
 import Payment from "../Pages/Dashboard/ForUser/Payment";
+import Success from "../Pages/Dashboard/ForUser/Success";
 
 const router = createBrowserRouter([
   {
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
       {
         path: "/blog",
         element: <Blogs />,
+      },
+      {
+        path: "/success",
+        element: <Success />,
       },
       {
         path: "/products/:id",

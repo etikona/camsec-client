@@ -34,10 +34,12 @@ const Payment = () => {
     })
       .then((res) => res.json())
       .then((data) => {
+        toast.success("Creating user Successfully");
         console.log(data);
+        if (data.acknowledged) {
+          navigate("/success");
+        }
       });
-
-    toast.success("Creating user Successfully");
   };
 
   return (
