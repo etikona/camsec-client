@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import BookingModal from "./BookingModal";
 import ProductCard from "./ProductCard";
+import Payment from "../../Dashboard/ForUser/Payment";
 
 const AllProducts = () => {
   const data = useLoaderData();
@@ -19,6 +20,7 @@ const AllProducts = () => {
         ></ProductCard>
       ))}
       {order && <BookingModal order={order} className="bttn" />}
+      {order && <Payment order={order} />}
     </div>
   );
 };

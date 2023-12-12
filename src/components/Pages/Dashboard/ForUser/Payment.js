@@ -4,26 +4,27 @@ import toast from "react-hot-toast";
 import { useNavigate, useParams } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthProvider";
 
-const Payment = ({ data }) => {
+const Payment = () => {
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
   const { id } = useParams();
-  console.log(user);
+  // console.log(user);
 
   const handlePayment = (event, data) => {
-    console.log(data);
+    // console.log(data);
     event.preventDefault();
     const form = event.target;
     const userName = form.userName.defaultValue;
     const email = user.email;
     const price = form.price.value;
     const number = form.number.value;
-
     const location = form.location.defaultValue;
+    storePaymentInfo(userName, email, price, number, location);
   };
 
   const storePaymentInfo = (userName, email, price, number, location) => {
     const payment = { userName, email, price, number, location };
+    console.log(payment);
     fetch("http://localhost:5000/payment", {
       method: "POST",
       headers: {
@@ -38,6 +39,7 @@ const Payment = ({ data }) => {
 
     toast.success("Creating user Successfully");
   };
+
   return (
     <div>
       <h3>Please provide your information to proceed your payment</h3>
